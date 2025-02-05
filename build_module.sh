@@ -357,7 +357,7 @@ fi
 echo "$ME: INFO: Downloading NGINX packaging tool"
 cd $BUILD_DIR
 
-PKG_OSS_URL="https://github.com/nginx/pkg-oss"
+PKG_OSS_URL="https://github.com/ntuple-dev/pkg-oss"
 
 git clone $PKG_OSS_URL
 
