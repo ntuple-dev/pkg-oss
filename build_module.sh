@@ -357,21 +357,21 @@ fi
 echo "$ME: INFO: Downloading NGINX packaging tool"
 cd $BUILD_DIR
 
-PKG_OSS_URL="https://github.com/nginx/pkg-oss"
+PKG_OSS_URL="https://github.com/ntuple-dev/pkg-oss"
 
 git clone $PKG_OSS_URL
 
 if [ "$BUILD_PLATFORM" = "OSS" ]; then
-	if [ "$OSS_VER" != "" ]; then
-		( cd pkg-oss && git checkout `git tag -l | grep "^$OSS_VER" | head -1 | awk '{print $1}'` )
-	fi
+        if [ "$OSS_VER"!= "" ]; then
+                ( cd pkg-oss && git checkout `git tag -l | grep "^$OSS_VER" | head -1 | awk '{print $1}'` )
+        fi
 else
-	( cd pkg-oss && git checkout target-plus-r$PLUS_REL )
+        ( cd pkg-oss && git checkout target-plus-r$PLUS_REL )
 fi
 cd pkg-oss/$PACKAGING_DIR
 if [ $? -ne 0 ]; then
-	echo "$ME: ERROR: Unable to obtain NGINX packaging tool - quitting"
-	exit 1
+        echo "$ME: ERROR: Unable to obtain NGINX packaging tool - quitting"
+        exit 1
 fi
 
 #
